@@ -44,7 +44,6 @@
     $uri=rtrim($uri,'/');
     $uriPrefix= $_SERVER['SCRIPT_NAME']; // путь /mysite/index.php
 
-
 $groupController=new GroupController();
 $studentController=new StudentController();
 $loginController=new LoginController();
@@ -60,7 +59,8 @@ $level = $user->getAccess(); // 0-Гость, 1-Ученик, 2-Учитель, 
 
 switch ($uri) {
     // ПРОСМОТР ГРУПП
-    case $uriPrefix.'': case $uriPrefix:
+    case $uriPrefix.'': 
+    case dirname($uriPrefix):
         $response=$groupController->getAllGroups_action();
         $response=$loginController->getAccess($response, $level, 1);
         break;
