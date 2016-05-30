@@ -21,7 +21,7 @@
 
   }
 
-  // ПОЛЬЗОВАТЕЛИ
+  // ПОЛЬЗОВАТЕЛИ2
   $text.= "<h6><b>ПОЛЬЗОВАТЕЛИ</b></h6>";
   $text.= "<ul class='nav nav-sidebar'>";
   $text.= "<li><a href='".$mysite."/index.php/showuser'>Все пользователи</a></li>";
@@ -30,7 +30,7 @@
   }
   $text.="</ul>";
 
-  // ВЫВОД МЕНЮ
+  // ВЫВОД МЕНЮ2
   echo $text;
 
 ?>
