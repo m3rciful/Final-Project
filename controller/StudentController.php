@@ -52,12 +52,18 @@ class StudentController{
         public function insertStudent_action($args){
 
             if($args['name'] AND $args['surname']) {
+
+                //echo "insertStudent_action: <pre>"; var_dump($args);echo "</pre>"; // TEST TEST TEST
+            
                 $paramForAddress=array($args['street'],$args['house'],$args['room'],$args['city_id']);
                 $address=new Address($paramForAddress,'INSERT');
+
                 $paramForPerson=array($args['name'],$args['surname'],$args['code'],$args['eban'],$args['bankname']);
                 $person=new Person($paramForPerson,'INSERT');
-                 $paramForStudent=array($args['registry'],$args['group_id'],$person->getId(),$address->getId());
+
+                $paramForStudent=array($args['registry'],$args['group_id'],$person->getId(),$address->getId());
                 $student=new Student($paramForStudent,'INSERT');
+
                 $repo=new StudentRepository();
                 $students=$repo->getStudentsByGroup($args["group_id"]);
                 $group=new Group($args["group_id"],'READ');

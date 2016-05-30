@@ -39,7 +39,7 @@
           <label for="_bankname">Имя банка:</label>
           <input type="text" class="form-control" id="_bankname" name="bankname" placeholder="Имя банка" value="">
         </div>
-        <h2 class="sub-header">Адрес</h2>
+        <h3>Адрес:</h3>
         <div class="form-group">
           <label for="_street">Улица:</label>
           <input type="text" class="form-control" id="_street" name="street" placeholder="Улица" value="">

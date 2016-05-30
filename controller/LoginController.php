@@ -21,7 +21,8 @@ class LoginController{
         }
 
         /**
-         * [getAccess description]
+         * Проверка доступа 
+         * 
          * @param  string $response начальное значение взятое из index.php
          * @param  int $level    уровень доступа пользователя (берется из базы)
          * @param  int $access   необходимый уровень доступа (задается в index.php)

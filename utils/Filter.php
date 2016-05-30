@@ -46,6 +46,7 @@ class Filter{
 
         return filter_input_array(INPUT_POST, $args);
     }
+   
 
     /**
      * [filterGetUri description]

@@ -23,6 +23,10 @@ class ConnDB{
         }
     }
 
+    /**
+     * [getDbh description]
+     * @return self
+     */
     public static function getDbh(){
         if(is_null(self::$dbh)){
             self::$instance= new self;

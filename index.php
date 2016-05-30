@@ -59,11 +59,6 @@ $level = $user->getAccess(); // 0-Гость, 1-Ученик, 2-Учитель, 
 
 switch ($uri) {
     // ПРОСМОТР ГРУПП
-    case $uriPrefix.'': 
-    case dirname($uriPrefix):
-        $response=$groupController->getAllGroups_action();
-        $response=$loginController->getAccess($response, $level, 1);
-        break;
     case $uriPrefix.'/showgroup':
         $response=$groupController->getGroup_action($filter->filterId());
         $response=$loginController->getAccess($response, $level, 1);
@@ -130,6 +125,11 @@ switch ($uri) {
     case $uriPrefix.'/deleteuser':
         $response=$loginController->deleteUser_action($filter->filterId());
         $response=$loginController->getAccess($response, $level, 3);
+        break;
+    // ГЛАВНАЯ СТРАНИЦА
+    default: 
+        $response=$groupController->getAllGroups_action();
+        $response=$loginController->getAccess($response, $level, 1);
         break;
 }
     
