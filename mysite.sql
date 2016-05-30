@@ -2,10 +2,10 @@
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1
--- Время создания: Май 29 2016 г., 20:08
--- Версия сервера: 10.1.10-MariaDB
--- Версия PHP: 5.6.19
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2016 at 06:44 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `mysite`
+-- Database: `mysite`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `address`
+-- Table structure for table `address`
 --
 
 CREATE TABLE `address` (
@@ -35,19 +35,21 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `address`
+-- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`id`, `street`, `house`, `room`, `city_id`) VALUES
-(0, '', '', 0, 1),
 (1, 'Jaama', '4', 12, 1),
 (2, 'Soo', '2', 5, 1),
-(3, 'Kutse', '13', 245, 1);
+(3, 'Kutse', '13', 245, 1),
+(4, 'OK', '123', 123, 1),
+(5, 'Maleva', '31', 21, 1),
+(6, 'Maleva', '31', 21, 2);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `city`
+-- Table structure for table `city`
 --
 
 CREATE TABLE `city` (
@@ -57,16 +59,18 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `city`
+-- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`id`, `name`, `country_id`) VALUES
-(1, 'Narva', 1);
+(1, 'Narva', 1),
+(2, 'Johvi', 2),
+(3, 'Silamae', 3);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `country`
+-- Table structure for table `country`
 --
 
 CREATE TABLE `country` (
@@ -75,7 +79,7 @@ CREATE TABLE `country` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `country`
+-- Dumping data for table `country`
 --
 
 INSERT INTO `country` (`id`, `name`) VALUES
@@ -84,7 +88,7 @@ INSERT INTO `country` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `curator`
+-- Table structure for table `curator`
 --
 
 CREATE TABLE `curator` (
@@ -94,7 +98,7 @@ CREATE TABLE `curator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `curator`
+-- Dumping data for table `curator`
 --
 
 INSERT INTO `curator` (`id`, `teacher_id`, `group_id`) VALUES
@@ -107,7 +111,7 @@ INSERT INTO `curator` (`id`, `teacher_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `group`
+-- Table structure for table `group`
 --
 
 CREATE TABLE `group` (
@@ -121,7 +125,7 @@ CREATE TABLE `group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `group`
+-- Dumping data for table `group`
 --
 
 INSERT INTO `group` (`id`, `abbreviation`, `groupname`, `begin_year`, `end_year`, `begin_month`, `end_month`) VALUES
@@ -129,12 +133,13 @@ INSERT INTO `group` (`id`, `abbreviation`, `groupname`, `begin_year`, `end_year`
 (2, 'KTVR', 'Tarkvaraarendaja', 2015, 2017, 9, 6),
 (3, 'PTAR', 'Andmebaaside haldus', 2014, 2016, 9, 6),
 (4, 'KTAR', 'Tarkvaraandmebaaside haldus', 2010, 2013, 9, 6),
-(6, 'PASR', 'Automaatika', 2013, 2016, 9, 6);
+(6, 'PASR', 'Automaatika', 2013, 2016, 9, 6),
+(7, '2KTVRpf', 'KTVRp', 2014, 2016, 9, 6);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `modul`
+-- Table structure for table `modul`
 --
 
 CREATE TABLE `modul` (
@@ -145,7 +150,7 @@ CREATE TABLE `modul` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -157,7 +162,7 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `pages`
+-- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `date`, `author`, `title`, `content`) VALUES
@@ -171,7 +176,7 @@ INSERT INTO `pages` (`id`, `date`, `author`, `title`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `parent`
+-- Table structure for table `parent`
 --
 
 CREATE TABLE `parent` (
@@ -184,7 +189,7 @@ CREATE TABLE `parent` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `person`
+-- Table structure for table `person`
 --
 
 CREATE TABLE `person` (
@@ -197,7 +202,7 @@ CREATE TABLE `person` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `person`
+-- Dumping data for table `person`
 --
 
 INSERT INTO `person` (`id`, `name`, `surname`, `code`, `eban`, `bankname`) VALUES
@@ -205,12 +210,12 @@ INSERT INTO `person` (`id`, `name`, `surname`, `code`, `eban`, `bankname`) VALUE
 (2, 'Aleksandr', 'Saas', '37905232212', 'EE224850373649298384', 'Swedpank'),
 (3, 'Sergei', 'Novitskov', '38011031132', 'EE2249503945345927', 'SEB'),
 (4, 'Oleg', 'Dubobtsky', '37012132214', 'EE2343456754675645', 'Nordipank'),
-(0, '', '', '', '', '');
+(5, 'Anja', 'Manina', '543534', 'gdfgfdg', 'dfgfdg');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `person_address`
+-- Table structure for table `person_address`
 --
 
 CREATE TABLE `person_address` (
@@ -220,7 +225,7 @@ CREATE TABLE `person_address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Дамп данных таблицы `person_address`
+-- Dumping data for table `person_address`
 --
 
 INSERT INTO `person_address` (`id`, `person_id`, `address_id`) VALUES
@@ -231,7 +236,7 @@ INSERT INTO `person_address` (`id`, `person_id`, `address_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `person_telephones`
+-- Table structure for table `person_telephones`
 --
 
 CREATE TABLE `person_telephones` (
@@ -243,7 +248,7 @@ CREATE TABLE `person_telephones` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `student`
+-- Table structure for table `student`
 --
 
 CREATE TABLE `student` (
@@ -255,18 +260,19 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `student`
+-- Dumping data for table `student`
 --
 
 INSERT INTO `student` (`id`, `registry`, `group_id`, `person_id`, `address_id`) VALUES
 (1, 1234, 2, 2, 1),
-(2, 1235, 0, 4, 2),
-(3, 1236, 1, 3, 3);
+(2, 1235, 2, 4, 2),
+(3, 1236, 0, 3, 3),
+(4, 5345345, 1, 5, 6);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `student_parents`
+-- Table structure for table `student_parents`
 --
 
 CREATE TABLE `student_parents` (
@@ -278,7 +284,7 @@ CREATE TABLE `student_parents` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `teacher`
+-- Table structure for table `teacher`
 --
 
 CREATE TABLE `teacher` (
@@ -287,7 +293,7 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `teacher`
+-- Dumping data for table `teacher`
 --
 
 INSERT INTO `teacher` (`id`, `person_id`) VALUES
@@ -296,7 +302,7 @@ INSERT INTO `teacher` (`id`, `person_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `telefon`
+-- Table structure for table `telefon`
 --
 
 CREATE TABLE `telefon` (
@@ -307,7 +313,7 @@ CREATE TABLE `telefon` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -320,42 +326,41 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `session_id`, `email`, `access`) VALUES
-(16, 'sergei', '$2y$10$6ja9OZpnLbN3Pza4cIODm.uZeW46SsVjQcJ6XgHRSHCJZfynK743C', '', 'novitskov@gmail.com', 4),
+(16, 'sergei', '$2y$10$6ja9OZpnLbN3Pza4cIODm.uZeW46SsVjQcJ6XgHRSHCJZfynK743C', 'kgvqemqep43vuh9kuil05k04u2', 'novitskov@gmail.com', 4),
 (17, 'juri', '$2y$10$avxYDEt8N6qY/Xp.RVPHP.QyPm7y5NtatgtUyiJAWppJSu0Ir4KHS', '', 'juri.melnikov@ivkhk.ee', 3),
 (18, 'olga', '$2y$10$Tb2WSfyLdOK.rEW2jfgs6ORpGQob1p8GcDM/a2XPmATbWqRUkSGXi', '', 'olga.popova@ivkhk.ee', 2),
-(19, 'pupil', '$2y$10$wj/h0F.jO3bNCOpEryJ6Yuf.CpmvRgxAogEQonX7Gl/7uAH6jBu8a', '', 'pupil@ivkhk.ee', 1),
-(20, 'root', '$2y$10$y9/DjEr6G5S5yle4zpmLm.9fnNVd0RkD0tKPPJ4UjbstMoysIlzmi', '', 'root@localhost', 4);
+(19, 'pupil', '$2y$10$wj/h0F.jO3bNCOpEryJ6Yuf.CpmvRgxAogEQonX7Gl/7uAH6jBu8a', '', 'pupil@ivkhk.ee', 1);
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `address`
+-- Indexes for table `address`
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`id`),
   ADD KEY `city_id` (`city_id`);
 
 --
--- Индексы таблицы `city`
+-- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`),
   ADD KEY `country_id` (`country_id`);
 
 --
--- Индексы таблицы `country`
+-- Indexes for table `country`
 --
 ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `curator`
+-- Indexes for table `curator`
 --
 ALTER TABLE `curator`
   ADD PRIMARY KEY (`id`),
@@ -365,41 +370,149 @@ ALTER TABLE `curator`
   ADD KEY `id_group_2` (`group_id`);
 
 --
--- Индексы таблицы `group`
+-- Indexes for table `group`
 --
 ALTER TABLE `group`
   ADD PRIMARY KEY (`id`),
   ADD KEY `groupname` (`groupname`);
 
 --
--- Индексы таблицы `modul`
+-- Indexes for table `modul`
 --
 ALTER TABLE `modul`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `pages`
+-- Indexes for table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `user`
+-- Indexes for table `parent`
+--
+ALTER TABLE `parent`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `person`
+--
+ALTER TABLE `person`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `person_address`
+--
+ALTER TABLE `person_address`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `person_telephones`
+--
+ALTER TABLE `person_telephones`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `student_parents`
+--
+ALTER TABLE `student_parents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `telefon`
+--
+ALTER TABLE `telefon`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `pages`
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `curator`
+--
+ALTER TABLE `curator`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `group`
+--
+ALTER TABLE `group`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT для таблицы `user`
+-- AUTO_INCREMENT for table `parent`
+--
+ALTER TABLE `parent`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `person`
+--
+ALTER TABLE `person`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `person_address`
+--
+ALTER TABLE `person_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `student_parents`
+--
+ALTER TABLE `student_parents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `telefon`
+--
+ALTER TABLE `telefon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
