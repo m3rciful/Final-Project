@@ -25,32 +25,32 @@
         </div>
         <div class="form-group" >
           <label for="_code">Личный код:</label>
-          <input type="text" class="form-control" id="_code" name="code" placeholder="Личный код">
+          <input type="text" class="form-control" id="_code" name="code" placeholder="Личный код" value="<?php echo rand(3, 4).rand(60, 99).rand(1, 12).rand(1, 31).rand(1000, 9000); ?>">
         </div>
         <div class="form-group" >
           <label for="_registry">Код регистра:</label>
-          <input type="text" class="form-control" id="_registry" name="registry" placeholder="Код регистра">
+          <input type="text" class="form-control" id="_registry" name="registry" placeholder="Код регистра" value="<?php echo rand(30000, 40000); ?>">
         </div>
         <div class="form-group" >
           <label for="_eban">Банковский счет:</label>
-          <input type="text" class="form-control" id="_eban" name="eban" placeholder="Банковский счет">
+          <input type="text" class="form-control" id="_eban" name="eban" placeholder="Банковский счет" value="<?php echo "EE".rand(1000000000, 4000000000); ?>">
         </div>
         <div class="form-group" >
           <label for="_bankname">Имя банка:</label>
-          <input type="text" class="form-control" id="_bankname" name="bankname" placeholder="Имя банка">
+          <input type="text" class="form-control" id="_bankname" name="bankname" placeholder="Имя банка" value="<?php $text = array("Swedbank", "SEB Bank", "Nordea", "Danske", "Sampo bank"); echo $text[rand(1, count($text))-1]; ?>">
         </div>
         <h3>Адрес:</h3>
         <div class="form-group">
           <label for="_street">Улица:</label>
-          <input type="text" class="form-control" id="_street" name="street" placeholder="Улица">
+          <input type="text" class="form-control" id="_street" name="street" placeholder="Улица" value="<?php $text = array("Kalevi", "Parna", "Katse", "Rea", "Lehe", "Aasa", "Rohu", "Muru", "Vase"); echo $text[rand(1, count($text))-1]; ?>">
         </div>
         <div class="form-group">
           <label for="_house">Дом:</label>
-          <input type="text" class="form-control" id="_house" name="house" placeholder="Дом">
+          <input type="text" class="form-control" id="_house" name="house" placeholder="Дом" value="<?php echo rand(1, 100); ?>">
         </div>
         <div class="form-group">
           <label for="_room">Квартира:</label>
-          <input type="text" class="form-control" id="_room" name="room" placeholder="Квартира">
+          <input type="text" class="form-control" id="_room" name="room" placeholder="Квартира" value="<?php echo rand(1, 100); ?>">
         </div>
         <div class="form-group">
           <label for="_city_id">Город:</label>

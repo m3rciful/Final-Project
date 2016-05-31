@@ -1,4 +1,5 @@
 <?php
+//echo "insertStudent_action: <pre>"; var_dump($args);echo "</pre>"; // VAR_DUMP
 
 class StudentController{
 
@@ -22,6 +23,7 @@ class StudentController{
          * @return string  ответ сервера клиенту (браузеру)
          */
         public function showStudent_action($id){
+
             $student=new Student($id,'READ');
             $response=$this->renderTemplate("view/templates/showStudent.php", array('student'=>$student));
             return $response;
@@ -52,8 +54,6 @@ class StudentController{
         public function insertStudent_action($args){
 
             if($args['name'] AND $args['surname']) {
-
-                //echo "insertStudent_action: <pre>"; var_dump($args);echo "</pre>"; // TEST TEST TEST
             
                 $paramForAddress=array($args['street'],$args['house'],$args['room'],$args['city_id']);
                 $address=new Address($paramForAddress,'INSERT');
@@ -82,9 +82,13 @@ class StudentController{
          * @return string  ответ сервера клиенту (браузеру)
          */
         public function listExistsStudents_action($group_id){
+
+            //echo "listExistsStudents_action: <pre>"; var_dump($persons);echo "</pre>"; // VAR_DUMP
+
             $StudentRepository=new StudentRepository();
-            $persons=$StudentRepository->listExistsStudents($group_id);
+            $persons=$StudentRepository->listExistsStudents(0);
             $response=$this->renderTemplate("view/templates/listExistsStudents.php", array('persons'=>$persons,'group_id'=>$group_id));
+
             return $response;
         }
         /**

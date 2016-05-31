@@ -49,11 +49,9 @@ class StudentRepository{
         while($row=$stmt->fetch()){
             $students[]=new Student($row,null);
         }
-    // echo "<br>StudentRepository::groupId=".$groupId."<br><br>StudentRepository::getStudentsByGroup=<pre>";
-// var_dump($students);
-// echo "</pre>";
         return $students;
     }
+
     public function getStudentByPersonId($personId){
         $students=array();
         $sql="SELECT `id`, `registry`, `group_id`, `person_id`, `address_id` FROM `student` WHERE person_id=?";
@@ -67,7 +65,7 @@ class StudentRepository{
     }
 
     public function listExistsStudents($group_id){
-        $sql="SELECT `person_id` FROM `student` WHERE `group_id` <>? ";
+        $sql="SELECT `person_id` FROM `student` WHERE `group_id`=?";
         $dbh = ConnDB::getDbh();
         $stmt=$dbh->prepare($sql);
         $stmt->execute([$group_id]);
@@ -78,6 +76,7 @@ class StudentRepository{
 
         return $persons;
     }
+
     public function insertStudentToGroup($args){
 
         $sql="UPDATE `student` SET `group_id`=? WHERE id=?";
